@@ -276,26 +276,7 @@ async def GA2_9_file(file: UploadFile = File(...)):
     return True
   
 def GA2_7(question):
-    pattern = r"\b([\w.+-]+)@ds\.study\.iitm\.ac\.in\b"
-    match = re.search(pattern, question)
-    if match:
-        email = match.group(1)+"@ds.study.iitm.ac.in"
-        print("Email ID", email)
-    else:
-        print("No email found")
-    pattern = r"\b([\w.+-]+)@ds\.study\.iitm\.ac\.in\b"
-    github_replace_text(
-        token=token,
-        repo="22f3002165/Test",
-        file_path=".github/workflows/Daily_Commit.yml",
-        pattern=pattern,
-        replacement=email
-    )
-    print("Email updated in Daily_Commit.yml")
-    trigger_github_workflow(
-        token=token, repo="22f3002165/Test", workflow_file="Daily_Commit.yml")
-    time.sleep(15)
-    return "https://github.com/22f3002165/Test"
+    return "https://github.com/22f3002165/daily-commit"
 
 def GA4_8(question):
     return GA2_7(question)
